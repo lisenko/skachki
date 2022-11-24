@@ -50,8 +50,8 @@ CREATE TABLE `battle_BlackSea` (
   `jockey` varchar(30) NOT NULL,
   `horse` varchar(30) NOT NULL,
   `place` int(11) NOT NULL,
-  `id_jockey` int(11) NOT NULL,
-  `id_horse` int(11) NOT NULL
+  `id_jockey` int(11) NOT NULL FOREIGN KEY,
+  `id_horse` int(11) NOT NULL FOREIGN KEY
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
