@@ -33,7 +33,7 @@ CREATE TABLE `results` (
   `horse` int NOT NULL,
   `jockey` int NOT NULL,
   `place` int NOT NULL,
-  `time` time NOT NULL,
+  `time` time(3) NOT NULL,
   PRIMARY KEY (`battle`, `horse`)
 );
 
