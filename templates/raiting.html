@@ -19,7 +19,7 @@
             <li><a href="base.html" class="nav-link px-2 link-secondary">Главная</a></li>
             <li><a href="raiting.html" class="nav-link px-2 link-dark">Рейтинг</a></li>
             <li><a href="append.html" class="nav-link px-2 link-dark">Добавление</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Новый результат</a></li>
+            <li><a href="new_result.html" class="nav-link px-2 link-dark">Новый результат</a></li>
             <li><a href="jockeys.html" class="nav-link px-2 link-dark">Жокеи</a></li>
             <li><a href="horses.html" class="nav-link px-2 link-dark">Лошади</a></li>
           </ul>
@@ -32,24 +32,6 @@
       </div>
 
       <main class="my-3 flex-shrink-0">
-        <!-- <div class="container">
-            <h1>Выберите состезание</h1>
-        </div>
-        <div class="container">
-            <div class="row">
-                <form action="POST">
-                    <div class="col-sm mt-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>--Не выбрано--</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                        <button class="btn btn-primary mt-2" type="submit">Загрузить</button>
-                    </div>
-                </form>
-            </div>
-        </div> -->
         <form action="POST">
             <div class="container">
                 <div class="row">
@@ -82,6 +64,15 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <!-- Вместо Skachki пишем название батла
+SELECT r.place, j.name, h.name
+FROM jockeys as j, horses as h, `results` as r
+LEFT OUTER JOIN `battles` as b
+ON r.battle=b.id
+WHERE b.name='Skachki'
+AND j.id=r.jockey
+AND h.id=r.horse;
+                                  -->
                                 <td>1</td>
                                 <td>Иван</td>
                                 <td>Юлий</td>

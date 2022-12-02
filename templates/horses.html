@@ -19,7 +19,7 @@
             <li><a href="base.html" class="nav-link px-2 link-secondary">Главная</a></li>
             <li><a href="raiting.html" class="nav-link px-2 link-dark">Рейтинг</a></li>
             <li><a href="append.html" class="nav-link px-2 link-dark">Добавление</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Новый результат</a></li>
+            <li><a href="new_result.html" class="nav-link px-2 link-dark">Новый результат</a></li>
             <li><a href="jockeys.html" class="nav-link px-2 link-dark">Жокеи</a></li>
             <li><a href="horses.html" class="nav-link px-2 link-dark">Лошади</a></li>
           </ul>
@@ -51,6 +51,15 @@
     <main class="my-3 flex-shrink-0">
         <div class="container">
             <h1>Рейтинговая таблица лошади {{ Лошадь }}</h1>
+            <!-- 
+SELECT r.place, b.name, j.name
+FROM battles as b, horses as h, `results` as r
+LEFT OUTER JOIN jockeys as j
+ON r.jockey=j.id
+WHERE h.name='Юлий'
+AND j.id=r.jockey
+AND h.id=r.horse;
+             -->
         </div>
     </main>
 
@@ -67,7 +76,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Чёрное море</td>
+                            <td>Skachki</td>
                             <td>1</td>
                             <td>Иван</td>
                         </tr>
