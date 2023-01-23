@@ -13,7 +13,7 @@ def battleslist(request):
 def resultslist(request, battle_id):
     context = {
         'battle': battle.objects.get(id=battle_id),
-        'results': result.objects.filter(battle=battle_id).order_by('place'),
+        'results': result.objects.filter(battle=battle_id).order_by('time'),
     }
     return render(request, 'race/results.html', context)
 

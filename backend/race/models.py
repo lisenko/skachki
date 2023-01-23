@@ -43,9 +43,7 @@ class result(models.Model):
     battle = models.ForeignKey(battle, on_delete=models.CASCADE)
     horse = models.ForeignKey(horse, on_delete=models.CASCADE)
     jockey = models.ForeignKey(jockey, on_delete=models.CASCADE)
-    place = models.IntegerField()
-    time = models.TimeField()
+    time = models.DurationField()
 
     def __str__(self):
-        return self.battle.name + ': ' + self.horse.name + ', ' + self.jockey.name + ' - ' + str(self.place) + ' место' + \
-            '(' + str(self.time) + ')'
+        return self.battle.name + ': ' + self.horse.name + ', ' + self.jockey.name + ' - ' + str(self.time)
