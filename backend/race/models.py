@@ -8,10 +8,15 @@ class owner(models.Model):
     def __str__(self):
         return self.name
 
+SEX_CHOICES = (
+    ("male", "Муж."),
+    ("female", "Жен.")
+)
+
 class horse(models.Model):
     owner = models.ForeignKey(owner, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    sex = models.CharField(max_length=10)
+    sex = models.CharField(max_length=10, choices=SEX_CHOICES, default="1")
     age = models.IntegerField()
 
     def __str__(self):
