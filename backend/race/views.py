@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.template import loader
-from django.http import HttpResponse
+from django.db import models
 
 from .models import owner, horse, jockey, battle, result
 
@@ -34,3 +33,21 @@ def ratingslist(request):
         'jockeys': jockey.objects.all().order_by('-rating'),
     }
     return render(request, 'race/rating.html', context)
+
+def horsedetails(request, horse_id):
+    context = {
+        'horse': horse.objects.get(id=horse_id),
+        'results_places': zip(result.objects.filter(horse=horse_id).order_by('-battle__startdate'), 
+        [result.objects.filter(time__lt=r.time, battle=r.battle).count()+1 
+        for r in result.objects.filter(horse=horse_id).order_by('-battle__startdate')]),
+    }
+    return render(request, 'race/horsedetails.html', context)
+
+def jockeydetails(request, jockey_id):
+    context = {
+        'jockey': jockey.objects.get(id=jockey_id),
+        'results_places': zip(result.objects.filter(jockey=jockey_id).order_by('-battle__startdate'), 
+        [result.objects.filter(time__lt=r.time, battle=r.battle).count()+1 
+        for r in result.objects.filter(jockey=jockey_id).order_by('-battle__startdate')]),
+    }
+    return render(request, 'race/jockeydetails.html', context)

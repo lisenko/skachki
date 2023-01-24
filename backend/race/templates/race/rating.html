@@ -52,7 +52,7 @@
                 {% for jockey in jockeys %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ jockey.name }}</td>
+                    <td><a href="/jockey/{{ jockey.id }}">{{ jockey.name }}</a></td>
                     <td>{{ jockey.address }}</td>
                     <td>{{ jockey.age }}</td>
                     <td>{{ jockey.rating }}</td>
@@ -66,8 +66,8 @@
           </div>
         </main>
     <script src="{% static 'js/search.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
   </body>
 </html>
