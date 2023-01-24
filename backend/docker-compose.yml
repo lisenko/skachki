@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - '3306:3306'
+    environment:
+       MYSQL_DATABASE: 'skachki'
+       MYSQL_USER: 'django'
+       MYSQL_PASSWORD: 'qwerty'
+       MYSQL_ROOT_PASSWORD: 'qwerty'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-connect='SET NAMES UTF8MB4;' --innodb-flush-log-at-trx-commit=0
+  web:
+    build: .
+    volumes:
+      - .:/backend
+    ports:
+      - "8000:8000"
+    environment:
+      MYSQL_PASSWORD: 'qwerty'
+      DJANGO_SECRET_KEY: 'qwerty'
+      DJANGO_SUPERUSER_USERNAME: 'admin'
+      DJANGO_SUPERUSER_PASSWORD: 'qwerty'
+      DJANGO_SUPERUSER_EMAIL: 'admin@example.com'
+    depends_on:
+      - db

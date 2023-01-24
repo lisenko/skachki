@@ -78,9 +78,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'db',
         'NAME': 'skachki',
         'USER': 'django',
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 
